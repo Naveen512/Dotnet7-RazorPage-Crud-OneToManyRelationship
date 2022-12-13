@@ -1,0 +1,38 @@
+@page "/employee/index"
+@model dot7.razor.crudsample.Pages.Employee.EmployeeIndex
+
+<div class="container">
+    <div class="row">
+        <div class="col col-md-4 offset-md-4">
+            <a asp-page="./EmployeeCreate" >Add New Employee</a>
+        </div>
+    </div>
+    <div class="row">
+
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Job Role</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var emp in Model.AllEmployees)
+                {
+                    <tr>
+                        <th>@emp.FirstName</th>
+                        <td>@emp.LastName</td>
+                        <td>@emp.JobRole</td>
+                        <td>
+                            <a asp-page="./EmployeeDetails" asp-route-id="@emp.Id">Details</a>  |
+                            <a asp-page="./EmployeeUpdate" asp-route-id="@emp.Id">Update</a> |
+                            <a asp-page="./EmployeeDelete" asp-route-id="@emp.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

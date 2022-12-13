@@ -1,0 +1,47 @@
+@page "/employee/create"
+@model dot7.razor.crudsample.Pages.Employee.EmployeeCreate
+
+<div class="container">
+    <div class="row">
+        <div class="col col-md-6 offset-md-3">
+            <form method="post">
+                <legend>Add A Employee</legend>
+                <div class="mb-3">
+                    <label for="txtfirstName" class="form-label">First Name</label>
+                    <input asp-for="NewEmployee.FirstName" type="text" class="form-control" id="txtfirstName" />
+                </div>
+                <div class="mb-3">
+                    <label for="txtlastName" class="form-label">Last Name</label>
+                    <input asp-for="NewEmployee.LastName" type="text" class="form-control" id="txtlastName" />
+                </div>
+                <div class="mb-3">
+                    <label for="txtjobRole" class="form-label">Job Role</label>
+                    <input asp-for="NewEmployee.JobRole" type="text" class="form-control" id="txtjobRole" />
+                </div>
+                @for (int i = 0; i <= 1; i++)
+                {
+                    <div class="row">
+
+                        <legend>Address @i</legend>
+                        <div class="mb-3">
+                            <label for="txtCity" class="form-label">Address Type</label>
+                            <input asp-for="NewEmployee.EmployeeAddresses[i].AddressType" type="text"
+                            class="form-control" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="txtCity" class="form-label">City</label>
+                            <input asp-for="NewEmployee.EmployeeAddresses[i].City" type="text" class="form-control" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="txtCity" class="form-label">Country</label>
+                            <input asp-for="NewEmployee.EmployeeAddresses[i].Country" type="text" class="form-control" />
+                        </div>
+
+                    </div>
+                }
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

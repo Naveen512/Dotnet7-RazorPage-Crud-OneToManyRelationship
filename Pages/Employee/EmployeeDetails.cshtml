@@ -1,0 +1,26 @@
+@page "/employee/details"
+@model dot7.razor.crudsample.Pages.Employee.EmployeeDetails
+
+<div class="container">
+    <div class="row">
+        <div class="col col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">@Model.Employee.FirstName @Model.Employee.LastName</h5>
+                    <h5 class="card-title">@Model.Employee.JobRole</h5>
+                    @foreach (var item in Model.Employee.EmployeeAddresses)
+                    {
+                        <div class="card">
+                            <div class="card-header">
+                                @item.AddressType Address
+                            </div>
+                            <div class="card-body">
+                                City - @item.City / Country - @item.Country
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
